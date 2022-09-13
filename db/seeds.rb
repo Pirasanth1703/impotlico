@@ -3,9 +3,9 @@ require "open-uri"
 
 puts "destroy all instances"
 
-User.destroy_all
 DeclarationItem.destroy_all
 Declaration.destroy_all
+User.destroy_all
 Item.destroy_all
 
 puts "creating users"
