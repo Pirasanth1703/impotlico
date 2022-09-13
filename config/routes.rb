@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :declarations do
     resources :declaration_items, only: %i(new create edit update destroy)
   end
+  resources :declaration_items, only: %i(destroy)
 end
