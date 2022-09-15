@@ -17,7 +17,7 @@ class DeclarationsController < ApplicationController
     user = current_user
     @declaration.user = user
     if @declaration.save!
-      redirect_to *(@declaration)
+      redirect_to root_path
     else
       render :new
     end
