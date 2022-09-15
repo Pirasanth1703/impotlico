@@ -8,7 +8,7 @@ Declaration.destroy_all
 User.destroy_all
 Item.destroy_all
 
-puts "creating users"
+puts "creating users..."
 
 nassim = User.create!(
   email: "nassim@nassim.com",
@@ -16,6 +16,7 @@ nassim = User.create!(
   first_name: "Nassim",
   last_name: "Brahimi"
 )
+puts "#{nassim.first_name} created"
 
 pira = User.create!(
   email: "pirasanth@pirasanth.com",
@@ -23,6 +24,7 @@ pira = User.create!(
   first_name: "Pirasanth",
   last_name: "Subramaniam"
 )
+puts "#{pira.first_name} created"
 
 nicolas = User.create!(
   email: "nicolas@nicolas.com",
@@ -30,67 +32,86 @@ nicolas = User.create!(
   first_name: "Nicolas",
   last_name: "Nguon"
 )
+puts "#{nicolas.first_name} created"
 
-puts "Create declarations"
+puts "Create declarations..."
 
-declaration_nicolas = Declaration.create!(
+Declaration.create!(
   solo: true,
   user: nicolas
 )
 
-declaration_pira = Declaration.create!(
+Declaration.create!(
   solo: false,
   user: pira
 )
 
-declaration_nassim = Declaration.create!(
+Declaration.create!(
   solo: false,
   user: nassim
 )
 
-puts "creating items"
+puts "created #{Declaration.all.count} declarations !!"
 
-freelance_item = Item.create!(
-  title: "Auto-Entrepreneur",
-  description: "Travailleur indépendant / autonome",
+puts "creating items..."
+
+Item.create!(
+  title: "Freelance",
+  description: "Benefices annuels",
   taxe_label: "5TA",
   category: "Revenus"
 )
 
-assurance_item = Item.create!(
-  title: "Assurance vie -8 ans",
-  description: "Prestation lors de la survenance d'un événement incertain et aléatoire souvent appelé « risque »",
+Item.create!(
+  title: "Annualties",
+  description: "Loyer annuel perçu",
   taxe_label: "2EE",
   category: "Revenus"
 )
 
-assurance2_item = Item.create!(
-  title: "Assurance vie +8 ans",
-  description: "prestation lors de la survenance d'un événement incertain et aléatoire souvent appelé « risque »",
+Item.create!(
+  title: "Deductible expenses",
+  description: "Charges déductibles",
   taxe_label: "2DH",
+  category: "Debts"
+)
+
+Item.create!(
+  title: "Crypto achetée",
+  description: "Montant investi cryptomonaie",
+  taxe_label: "7UJ",
   category: "Revenus"
 )
 
-charity_donation = Item.create!(
-  title: "Don caritatif ",
-  description: "Donation à des associations caritatives",
-  taxe_label: "7UJ",
-  category: "Depenses"
-)
-
-propertytax = Item.create!(
-  title: "Taxe foncière ",
-  description: "La taxe foncière est un impôt local dû tous les ans par le propriétaire ou l'usufruitier d'un bien immobilier.",
+Item.create!(
+  title: "Crypto vendue",
+  description: "Montant converti cryptomonaie",
   taxe_label: "4BA",
-  category: "Dettes"
+  category: "Revenus"
 )
 
-puts "Creating declaration items"
-
-DeclarationItem.create!(
-  declaration: declaration_nicolas,
-  item: assurance_item,
-  amount: rand(2000...10000)
+Item.create!(
+  title: "Actions achetées",
+  description: "Montant converti cryptomonaie",
+  taxe_label: "4BA",
+  category: "Revenus"
 )
+
+Item.create!(
+  title: "Action vendues",
+  description: "Montant converti cryptomonaie",
+  taxe_label: "4BA",
+  category: "Revenus"
+)
+
+puts "created #{Item.all.count} items"
+
+# puts "Creating declaration items"
+
+# DeclarationItem.create!(
+#   declaration: declaration_nicolas,
+#   item: assurance_item,
+#   amount: rand(2000...10000)
+# )
 
 puts "Seed terminated"
