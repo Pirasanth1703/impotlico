@@ -1,0 +1,21 @@
+
+
+<h1>Es tu seul ou amoureux ?</h1>
+
+<p>Petits tip! Si tu as opté pour le prélèvement libératoire, cela impact ...</p>
+<p>Petits tip! Si tu as opté pour le prélèvement libératoire, cela impact ...</p>
+
+
+<%= simple_form_for (@declaration) do |f| %>
+<%= f.input :solo, value: :true, as: :hidden %>
+<%= f.button :submit, value: "Vous déclarer seul"  %>
+<%= f.button :submit, value: "Vous déclarer en couple" %>
+
+<% end %>
+
+
+
+
+
+
+<p><%= link_to "Retour", "/declarations", class: "btn btn-ghost" %></p>
